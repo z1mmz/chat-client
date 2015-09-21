@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class Chat {
 private static final int PORTNUM = 9980;
     /**
-     * @param args the command line arguments
+     * @param args athe command line arguments
      */
     public static void main(String[] args) {
         try{String hostIP = new String("127.0.0.1");

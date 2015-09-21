@@ -78,14 +78,13 @@ public class hammingCoder {
 
             for (int z = 0; z < tempHamming.length; z++) {
 
-               
                 if (((z + 1) & z) == 0 && z + 1 > 0) {
                     zeros = 0;
                     ones = 0;
                     //hamming code check for bit zero 
                     if (z == 0) {
                         System.out.println("Current z : " + z);
-                        for (int d = 0; d < tempHamming.length; d += 2) {
+                        for (int d = 2; d < tempHamming.length; d += 2) {
                             if (tempHamming[d] == 0) {
                                 zeros++;
                             }
@@ -93,29 +92,46 @@ public class hammingCoder {
                                 ones++;
                             }
                         }
-                        // check if 1s or zeros are even
-                        if (ones % 2 == 0) {
+                    }
+                    // check if 1s or zeros are even
+                    if (ones % 2 == 0) {
+                        tempHamming[z] = 0;
+                    } else {
+                        tempHamming[z] = 1;
+                    }
+                    //Hamming for bit 1
+                    if (z == 1) {
+                        int howMany = 0;
+                        for (int d = 1; d < tempHamming.length; d++) {
+                            if (tempHamming[d] == 0) {
+                                zeros++;
+                            }
+                            if (tempHamming[d] == 1) {
+                                ones++;
+                            }
+                            howMany++;
+                            if (howMany >= 2) {
+                                d += 2;
+                            }
+                        }
+                         if (ones % 2 == 0) {
                             tempHamming[z] = 0;
                         } else {
                             tempHamming[z] = 1;
                         }
-                        //Hamming for bit 1
-                        if(z == 1){
-                        
-                        }
-
-                    }
-                    System.out.println("");
-                    for (int d = 0; d < tempHamming.length; d++) {
-                        System.out.print(tempHamming[d]);
                     }
 
                 }
+                System.out.println("");
+                for (int d = 0; d < tempHamming.length; d++) {
+                    System.out.print(tempHamming[d]);
+                }
 
             }
-            System.out.println();
-        }
 
+        }
+        System.out.println();
     }
 
 }
+
