@@ -120,6 +120,46 @@ public class hammingCoder {
                             tempHamming[z] = 1;
                         }
                     }
+                     if (z == 3) {
+                        int howMany = 0;
+                        for (int d = 3; d < tempHamming.length; d++) {
+                            if (tempHamming[d] == 0) {
+                                zeros++;
+                            }
+                            if (tempHamming[d] == 1) {
+                                ones++;
+                            }
+                            howMany++;
+                            if (howMany >= 4) {
+                                d += 4;
+                            }
+                        }
+                         if (ones % 2 == 0) {
+                            tempHamming[z] = 0;
+                        } else {
+                            tempHamming[z] = 1;
+                        }
+                    }
+                               if (z == 7) {
+                        int howMany = 0;
+                        for (int d = 7; d < tempHamming.length; d++) {
+                            if (tempHamming[d] == 0) {
+                                zeros++;
+                            }
+                            if (tempHamming[d] == 1) {
+                                ones++;
+                            }
+                            howMany++;
+                            if (howMany >= 8) {
+                                d += 8;
+                            }
+                        }
+                         if (ones % 2 == 0) {
+                            tempHamming[z] = 0;
+                        } else {
+                            tempHamming[z] = 1;
+                        }
+                    }
 
                 }
                 System.out.println("");
