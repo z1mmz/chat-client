@@ -17,6 +17,7 @@
 package chat;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -30,7 +31,8 @@ public class hammingCoder {
 
     ;
     
-    public void encode(String a) {
+    public ArrayList encode(String a) {
+        ArrayList<int[]> hammingCodes = new ArrayList<int[]>();
         char[] bin;
         int tempHamming[] = new int[0];
         byte binData[] = a.getBytes(UTF_8);
@@ -114,13 +116,13 @@ public class hammingCoder {
                                 d += 2;
                             }
                         }
-                         if (ones % 2 == 0) {
+                        if (ones % 2 == 0) {
                             tempHamming[z] = 0;
                         } else {
                             tempHamming[z] = 1;
                         }
                     }
-                     if (z == 3) {
+                    if (z == 3) {
                         int howMany = 0;
                         for (int d = 3; d < tempHamming.length; d++) {
                             if (tempHamming[d] == 0) {
@@ -134,13 +136,13 @@ public class hammingCoder {
                                 d += 4;
                             }
                         }
-                         if (ones % 2 == 0) {
+                        if (ones % 2 == 0) {
                             tempHamming[z] = 0;
                         } else {
                             tempHamming[z] = 1;
                         }
                     }
-                               if (z == 7) {
+                    if (z == 7) {
                         int howMany = 0;
                         for (int d = 7; d < tempHamming.length; d++) {
                             if (tempHamming[d] == 0) {
@@ -154,7 +156,7 @@ public class hammingCoder {
                                 d += 8;
                             }
                         }
-                         if (ones % 2 == 0) {
+                        if (ones % 2 == 0) {
                             tempHamming[z] = 0;
                         } else {
                             tempHamming[z] = 1;
@@ -162,16 +164,18 @@ public class hammingCoder {
                     }
 
                 }
-                System.out.println("");
+               System.out.println("");
                 for (int d = 0; d < tempHamming.length; d++) {
                     System.out.print(tempHamming[d]);
                 }
 
             }
-
+            hammingCodes.add(tempHamming);
+            System.out.println("IMHERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
-        System.out.println();
+        
+//        System.out.println();
+        return hammingCodes;
     }
 
 }
-

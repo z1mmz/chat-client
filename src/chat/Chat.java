@@ -22,30 +22,46 @@ package chat;
  */
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
 public class Chat {
-private static final int PORTNUM = 9980;
+
+    private static final int PORTNUM = 9980;
+
     /**
      * @param args athe command line arguments
      */
     public static void main(String[] args) {
-        try{String hostIP = new String("127.0.0.1");
-            Socket serverCon = new Socket(hostIP,PORTNUM);
-            PrintWriter out = new PrintWriter(serverCon.getOutputStream(),true);
+        try {
+            String hostIP = new String("127.0.0.1");
+            ArrayList<int[]> hammingCodes = new ArrayList<int[]>();
+            Socket serverCon = new Socket(hostIP, PORTNUM);
+            PrintWriter out = new PrintWriter(serverCon.getOutputStream(), true);
             Scanner in = new Scanner(serverCon.getInputStream());
             Scanner userIn = new Scanner(System.in);
             hammingCoder hammingcoder = new hammingCoder();
-            hammingcoder.encode(userIn.nextLine());
-            while(true){  
-             if(in.hasNext()){   
-            System.out.println("echo:	" + in.nextLine());
-             }
-            out.println(userIn.nextLine());
+            hammingCodes = hammingcoder.encode(userIn.nextLine());
+            while (true==true) {
+//               if (in.hasNext()) {
+//                    System.out.println("echo:	" + in.nextLine());
+//                     System.out.println("LOOPY");
+//                }
+                hammingCodes = hammingcoder.encode(userIn.nextLine());
+                for (int i = 0; i < hammingCodes.size();i++){
+                    int[] tempHamming = hammingCodes.get(i);
+                   String strHamming = Arrays.toString(tempHamming);
+                   strHamming = strHamming.replaceAll("\\[*\\]*\\,*", "").replaceAll("\\s*", "");
+                    System.out.println(strHamming);
+                    out.println(strHamming);
+                }
+                 System.out.println("LOOPY");
             }
-            } catch(Exception e){
+        } catch (Exception e) {
+             System.out.println(e.getMessage());
         }
- 
-        
+System.out.println("END");
     }
-    
+
 }
