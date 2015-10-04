@@ -31,7 +31,7 @@ public class Chat {
     private static final int PORTNUM = 9980;
 
     /**
-     * @param args athe command line arguments
+     * @param args the command line arguments
      */
     public static void main(String[] args) {
         try {
