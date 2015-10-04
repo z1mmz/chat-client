@@ -111,8 +111,9 @@ public class hammingCoder {
                                 ones++;
                             }
                             howMany++;
-                            if (howMany >= 2) {
+                            if (howMany == 2) {
                                 d += 2;
+                                howMany = 0;
                             }
                         }
                         if (ones % 2 == 0) {
@@ -131,8 +132,9 @@ public class hammingCoder {
                                 ones++;
                             }
                             howMany++;
-                            if (howMany >= 4) {
+                            if (howMany == 4) {
                                 d += 4;
+                                howMany = 0;
                             }
                         }
                         if (ones % 2 == 0) {
@@ -151,8 +153,9 @@ public class hammingCoder {
                                 ones++;
                             }
                             howMany++;
-                            if (howMany >= 8) {
+                            if (howMany == 8) {
                                 d += 8;
+                                howMany = 0;
                             }
                         }
                         if (ones % 2 == 0) {

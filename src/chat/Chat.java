@@ -51,12 +51,17 @@ public class Chat {
                 hammingCodes = hammingcoder.encode(userIn.nextLine());
                 for (int i = 0; i < hammingCodes.size();i++){
                     int[] tempHamming = hammingCodes.get(i);
+                   if( tempHamming[2] == 0){
+                   tempHamming[2] =1;
+                   } else{
+                   tempHamming[2] = 0;
+                   }//mess up the hamming!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                    String strHamming = Arrays.toString(tempHamming);
                    strHamming = strHamming.replaceAll("\\[*\\]*\\,*", "").replaceAll("\\s*", "");
                     System.out.println(strHamming);
                     out.println(strHamming);
                 }
-                 System.out.println("LOOPY");
+//                 System.out.println("LOOPY");
             }
         } catch (Exception e) {
              System.out.println(e.getMessage());
