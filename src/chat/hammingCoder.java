@@ -36,7 +36,7 @@ public class hammingCoder {
         char[] bin;
         int tempHamming[] = new int[0];
         byte binData[] = a.getBytes(UTF_8);
-        System.out.println(Arrays.toString(binData));
+        //System.out.println(Arrays.toString(binData));
         for (int i = 0; i <a.length(); i++) {
 //            System.out.print(Integer.toBinaryString(binData[i]));
 //            System.out.println();
@@ -64,7 +64,7 @@ public class hammingCoder {
                 for (int z = 0; z < a.length(); z++) {
                     for (int d = 0; d < tempHamming.length; d++) {
                         if (tempHamming[d] == 2) {
-                            tempHamming[d] = Character.getNumericValue(a.charAt(z));
+                            tempHamming[d] = a.charAt(z) -'0';
                             break;
                         }
                     }
