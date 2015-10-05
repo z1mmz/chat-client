@@ -37,11 +37,11 @@ public class hammingCoder {
         int tempHamming[] = new int[0];
         byte binData[] = a.getBytes(UTF_8);
         System.out.println(Arrays.toString(binData));
-        for (int i = 0; i < binData.length; i++) {
-            System.out.print(Integer.toBinaryString(binData[i]));
-            System.out.println();
-            String b = Integer.toBinaryString(binData[i]);
-            a = new StringBuilder(b).reverse().toString();
+        for (int i = 0; i <a.length(); i++) {
+//            System.out.print(Integer.toBinaryString(binData[i]));
+//            System.out.println();
+//            String b = Integer.toBinaryString(binData[i]);
+            a = new StringBuilder(a).reverse().toString();
             int r = 0;
             int m = a.length();
             while ((m + r + 1) >= Math.pow(2, r)) {
